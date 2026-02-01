@@ -1,0 +1,16 @@
+# User-specific files
+
+# Visual Studio cache/options directory
+.vs/
+
+# Ignore Mathematica folders
+Mathematica/
+
+# Geometric Tools output folders (can be batch deleted without concern for source control)
+_Output/
+
+# User-specific settings
+*.user
+
+# Output of unit tests
+GTL/UnitTests/UTResults.txt
