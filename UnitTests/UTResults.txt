@@ -1,0 +1,27 @@
+Mathematics
+Mathematics/Approximation/2D
+Mathematics/Approximation/2D/ApprCircle2
+Mathematics/Approximation/2D/ApprCurveByArcs [tested by GTL/VisualTests/Approximation/ApproximationBezierCurveByArcs]
+Mathematics/Approximation/2D/ApprEllipse2 [tested by GTL/VisualTests/Approximation/ApproximationEllipse2]
+Mathematics/Approximation/2D/ApprEllipseByArcs [tested by GTL/VisualTests/Approximation/ApproximationEllipseByArcs]
+Mathematics/Approximation/2D/ApprHeightLine2
+Mathematics/Approximation/2D/ApprOrthogonalLine2
+Mathematics/Approximation/2D/ApprParabola2
+Mathematics/Approximation/2D/ApprParallelLines2
+Mathematics/Approximation/3D
+Mathematics/Approximation/3D/ApprCone3
+Mathematics/Approximation/3D/ApprCylinder3 [tested by GTL/VisualTests/Mathematics/Approximation/ApproximationCylinder3]
+Mathematics/Approximation/3D/ApprEllipsoid3 [tested by GTL/VisualTests/Mathematics/Approximation/ApproximationEllipsoid3]
+Mathematics/Approximation/3D/ApprGreatArc3
+Mathematics/Approximation/3D/ApprGreatCircle3
+Mathematics/Approximation/3D/ApprHeightPlane3
+Mathematics/Approximation/3D/ApprHelmertTransformation3
+Mathematics/Approximation/3D/ApprOrthogonalLine3
+Mathematics/Approximation/3D/ApprOrthogonalPlane3
+Mathematics/Approximation/3D/ApprParaboloid3
+Mathematics/Approximation/3D/ApprSphere3
+Mathematics/Approximation/3D/ApprTorus3
+Mathematics/Approximation/ND
+Mathematics/Approximation/ND/ApprGaussianDistribution
+Mathematics/Approximation/Polynomial
+Mathematics/Approximation/Polynomial/ApprPolynomial1
