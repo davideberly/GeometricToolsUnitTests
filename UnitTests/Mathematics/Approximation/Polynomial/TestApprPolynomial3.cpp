@@ -43,7 +43,7 @@ void UnitTestApprPolynomial3::Test()
 
     std::size_t constexpr xDegree = 3, yDegree = 2, zDegree = 1;
     Polynomial<double, 3> polynomial{};
-    bool success = ApprPolynomial3<double>::Fit(xDegree, yDegree, zDegree, observations, polynomial);
+    bool success = ApprPolynomial3<double>::Fit(xDegree, yDegree, zDegree, observations, true, polynomial);
     UTAssert(success, "The fit failed.");
     // coefficients of polynomial
     //   {1, x, x^2, x^3} [polynomial.mCoefficient[0].mCoefficient[0].mCoefficient[0..3]]
@@ -59,28 +59,46 @@ void UnitTestApprPolynomial3::Test()
     //   {z*y^2, z*y^2*x, z*y^2*x^2, z*y^2*x^3} [polynomial.mCoefficient[1].mCoefficient[2].mCoefficient[0..3]]
     //   {-0.0079261803145761148, -0.28109860505322548, 0.13176597647613700, -0.011491032406311705}
 
-    // From Mathematica's "Fit" function
+    // From Mathematica's "Fit" function. NOTE: If WorkingPrecision is omitted,
+    // Mathematics has a large numerical error in the y*x^3 term. With WorkingPrecision
+    // of 64, the coefficient is 0.05537074489933345. With WorkingPrecision omitted, the
+    // coefficient is 0.05311998097563411.
     // basis = {1, x, x^2, x^3, y, y*x y*x^2, y*x^3, y^2, y^2*x, y^2*x^2, y^2*x^3, 
     //     z, z*x, z*x^2, z*x^3, z*y, z*y*x, z*y*x^2, z*y*x^3, z*y^2, z*y^2*x, z*y^2*x^2, z*y^2*x^3}
     // Fit[SetPrecision[points, 17], basis, {x,y}, WorkingPrecision -> 64]
     Polynomial<double, 3> expectedPolynomial
     {
-        {{-0.014284589238581833, -0.26965168367313349, 0.017179112803375081, 0.26714751715802264},
-        {-0.017659624992757659, 0.025837391113289479, -0.06958343249174566, 0.05537074489933345},
-        { 0.07014483574903946, 0.6402499461444537, -0.16968056818489662, -0.5815176045536783}},
-        {{-0.03945718785205475, 0.11086782757404236, 0.16763135888251034, 0.05311998097563626},
-        {-0.13990048083846388, -0.14700160470157331, 0.3506633404406768, 0.11027116248640820},
-        {-0.007926180314575905, -0.28109860505322219, 0.13176597647613738, -0.011491032406316581}}
+        {
+            // {1, x, x^2, x^3} [expectedPolynomial.mCoefficient[0].mCoefficient[0].mCoefficient[0..3]]
+            {-0.014284589238581833, -0.26965168367313349, 0.017179112803375081, 0.26714751715802264},
+            // {y, y*x y*x^2, y*x^3} [expectedPolynomial.mCoefficient[0].mCoefficient[1].mCoefficient[0..3]]
+            {-0.017659624992757659, 0.025837391113289479, -0.06958343249174566, 0.05537074489933345},
+            // {y^2, y^2*x, y^2*x^2, y^2*x^3} [expectedPolynomial.mCoefficient[0].mCoefficient[2].mCoefficient[0..3]]
+            { 0.07014483574903946 , 0.6402499461444537, -0.16968056818489662, -0.5815176045536783 }
+        },
+        {
+            // {z, z*x, z*x^2, z*x^3} [expectedPolynomial.mCoefficient[1].mCoefficient[0].mCoefficient[0..3]]
+            {-0.03945718785205475, 0.11086782757404236 , 0.16763135888251034, 0.05311998097563626},
+            // {z*y, z*y*x, z*y*x^2, z*y*x^3} [expectedPolynomial.mCoefficient[1].mCoefficient[1].mCoefficient[0..3]]
+            {-0.13990048083846388, -0.14700160470157331 , 0.3506633404406768, 0.11027116248640820},
+            // {z*y^2, z*y^2*x, z*y^2*x^2, z*y^2*x^3} [expectedPolynomial.mCoefficient[1].mCoefficient[2].mCoefficient[0..3]]
+            {-0.007926180314575905 , -0.28109860505322219, 0.13176597647613738 , -0.011491032406316581}
+        }
     };
 
     Polynomial<double, 3> diff = polynomial - expectedPolynomial;
-    // coefficients of diff
-    //   {2.3765711620882257e-16, -7.3829831137572910e-15, -9.4022012397942945e-16, 1.1435297153639112e-14}
-    //   {-3.0531133177191805e-16, -1.9741153156616065e-15, 7.6327832942979512e-16, 2.7131075164277263e-15}
-    //   {-9.5756735873919752e-16, 2.0539125955565396e-14, 2.7478019859472624e-15, -3.1641356201816961e-14}
-    //   {6.9388939039072284e-17, 2.9698465908722937e-15, 1.1102230246251565e-16, -4.2882364326146671e-15}
-    //   {8.8817841970012523e-16, -3.5527136788005009e-15, -1.3877787807814457e-15, 6.3143934525555778e-15}
-    //   {-2.0990154059319366e-16, -3.2751579226442118e-15, -3.8857805861880479e-16, 4.8763076909708047e-15}
+    // {1, x, x^2, x^3} [diff.mCoefficient[0].mCoefficient[0].mCoefficient[0..3]]
+    // {2.3765711620882257e-16, -7.3829831137572910e-15, -9.4022012397942945e-16, 1.1435297153639112e-14}
+    // {y, y*x y*x^2, y*x^3} [diff.mCoefficient[0].mCoefficient[1].mCoefficient[0..3]]
+    // {-3.0531133177191805e-16, -1.9741153156616065e-15, 7.6327832942979512e-16, 2.7131075164277263e-15}
+    // {y^2, y^2*x, y^2*x^2, y^2*x^3} [diff.mCoefficient[0].mCoefficient[2].mCoefficient[0..3]]
+    // {-9.5756735873919752e-16, 2.0539125955565396e-14, 2.7478019859472624e-15, -3.1641356201816961e-14}
+    // {z, z*x, z*x^2, z*x^3} [diff.mCoefficient[1].mCoefficient[0].mCoefficient[0..3]]
+    // {6.9388939039072284e-17, 2.9698465908722937e-15, 1.1102230246251565e-16, -4.2882364326146671e-15}
+    // {z*y, z*y*x, z*y*x^2, z*y*x^3} [diff.mCoefficient[1].mCoefficient[1].mCoefficient[0..3]]
+    // {8.8817841970012523e-16, -3.5527136788005009e-15, -1.3877787807814457e-15, 6.3143934525555778e-15}
+    // {z*y^2, z*y^2*x, z*y^2*x^2, z*y^2*x^3} [diff.mCoefficient[1].mCoefficient[2].mCoefficient[0..3]]
+    // {-2.0990154059319366e-16, -3.2751579226442118e-15, -3.8857805861880479e-16, 4.8763076909708047e-15}
     double constexpr maxError = 1.0e-13;
     double error{};
     for (std::size_t s = 0; s <= zDegree; ++s)
@@ -96,9 +114,9 @@ void UnitTestApprPolynomial3::Test()
         }
     }
 
-    std::array<double, 3> x = { 0.0, 0.0, 0.0 };
+    std::array<double, 3> x = { 1.2345, 0.6789, 0.5 };
     double w = polynomial(x.data());
-    double expectedW = -0.014284589238581596;
+    double expectedW = 0.291836165589471;
     error = std::fabs(w - expectedW);
     UTAssert(error <= maxError, "The w-value is incorrect.");
 }
