@@ -2033,29 +2033,29 @@ void UTMathematics::ImageProcessing::Execute()
 
 #if defined(UT_MATHEMATICS_PDEFILTER)
     Precall();
-    extern void TestPdeFilter();
-    TestPdeFilter();
+    extern void TestPDEFilter();
+    TestPDEFilter();
     Postcall();
 #endif
 
 #if defined(UT_MATHEMATICS_PDEFILTER1)
     Precall();
-    extern void TestPdeFilter1();
-    TestPdeFilter1();
+    extern void TestPDEFilter1();
+    TestPDEFilter1();
     Postcall();
 #endif
 
 #if defined(UT_MATHEMATICS_PDEFILTER2)
     Precall();
-    extern void TestPdeFilter2();
-    TestPdeFilter2();
+    extern void TestPDEFilter2();
+    TestPDEFilter2();
     Postcall();
 #endif
 
 #if defined(UT_MATHEMATICS_PDEFILTER3)
     Precall();
-    extern void TestPdeFilter3();
-    TestPdeFilter3();
+    extern void TestPDEFilter3();
+    TestPDEFilter3();
     Postcall();
 #endif
 

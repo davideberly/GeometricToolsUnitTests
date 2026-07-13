@@ -42,25 +42,25 @@ void UnitTestContAlignedBox::Test()
         }
     }
 
-    AlignedBox3<double> box0{};
-    GetContainer(points, box0);
+    AlignedBox<double, 3> box0{};
+    ContAlignedBox<double, 3>::GetContainer(points, box0);
     for (int i = 0; i < 3; ++i)
     {
         UTAssert(box0.min[i] == rmin[i] && box0.max[i] == rmax[i], "incorrect extremum");
     }
 
-    Vector3<double> test{};  // zero vector
-    UTAssert(InContainer(test, box0), "InContainer failed");
+    Vector<double, 3> test{};  // zero vector
+    UTAssert((ContAlignedBox<double, 3>::InContainer(test, box0)), "InContainer failed");
     test = { 1.0, 1.0, 1.0 };
-    UTAssert(!InContainer(test, box0), "InContainer failed");
+    UTAssert((!ContAlignedBox<double, 3>::InContainer(test, box0)), "InContainer failed");
 
-    AlignedBox3<double> box1{};
+    AlignedBox<double, 3> box1{};
     box1.min = { 0.0, 0.0, 0.0 };
     box1.max = { 1.0, 1.0, 1.0 };
     box0.min = { 0.5, -1.0, 0.5 };
     box0.max = { 2.0, 2.0, 0.75 };
     AlignedBox3<double> merge{};
-    MergeContainers(box0, box1, merge);
+    ContAlignedBox<double, 3>::MergeContainers(box0, box1, merge);
     bool equal0 = (merge.min == Vector3<double>{0.0, -1.0, 0.0});
     bool equal1 = (merge.max == Vector3<double>{2.0, 2.0, 1.0});
     UTAssert(equal0 && equal1, "MergeContainers failed.");
@@ -75,19 +75,12 @@ void UnitTestContAlignedBox::Test()
 
 namespace gtl
 {
-    template void GetContainer(std::vector<Vector<float, 3>> const&, AlignedBox<float, 3>&);
-    template bool InContainer(Vector<float, 3> const&, AlignedBox<float, 3> const&);
-    template void MergeContainers(AlignedBox<float, 3> const&, AlignedBox<float, 3> const&, AlignedBox<float, 3>&);
-
-    template void GetContainer(std::vector<Vector<double, 3>> const&, AlignedBox<double, 3>&);
-    template bool InContainer(Vector<double, 3> const&, AlignedBox<double, 3> const&);
-    template void MergeContainers(AlignedBox<double, 3> const&, AlignedBox<double, 3> const&, AlignedBox<double, 3>&);
+    template class ContAlignedBox<float, 2>;
+    template class ContAlignedBox<double, 3>;
 
 #if defined(GTL_INSTANTIATE_RATIONAL)
     using Rational = BSRational<UIntegerAP32>;
-    template void GetContainer(std::vector<Vector<Rational, 3>> const&, AlignedBox<Rational, 3>&);
-    template bool InContainer(Vector<Rational, 3> const&, AlignedBox<Rational, 3> const&);
-    template void MergeContainers(AlignedBox<Rational, 3> const&, AlignedBox<Rational, 3> const&, AlignedBox<Rational, 3>&);
+    template class ContAlignedBox<Rational, 4>;
 #endif
 }
 

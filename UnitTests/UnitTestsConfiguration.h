@@ -8,7 +8,8 @@
 #pragma once
 
 // Top-level control over which tests are executed. The individual classes
-// need unit testing.
+// need unit testing. The commented out #define for each header file means
+// the code has not yet been unit tested.
 
 //#define UT_UTILITY
 #define UT_MATHEMATICS
@@ -16,7 +17,7 @@
 //#define UT_MATHEMATICS_APPROXIMATION_2D
 //#define UT_MATHEMATICS_APPROXIMATION_3D
 //#define UT_MATHEMATICS_APPROXIMATION_ND
-#define UT_MATHEMATICS_APPROXIMATION_POLYNOMIAL
+//#define UT_MATHEMATICS_APPROXIMATION_POLYNOMIAL
 //#define UT_MATHEMATICS_ARITHMETIC
 //#define UT_MATHEMATICS_CONTAINMENT_2D
 //#define UT_MATHEMATICS_CONTAINMENT_3D
@@ -126,9 +127,9 @@
 // Mathematics/Approximation/Polynomial
 #if defined(UT_MATHEMATICS_APPROXIMATION_POLYNOMIAL)
 #define UT_MATHEMATICS_APPRPOLYNOMIAL
-//#define UT_MATHEMATICS_APPRPOLYNOMIAL1
-//#define UT_MATHEMATICS_APPRPOLYNOMIAL2
-//#define UT_MATHEMATICS_APPRPOLYNOMIAL3
+#define UT_MATHEMATICS_APPRPOLYNOMIAL1
+#define UT_MATHEMATICS_APPRPOLYNOMIAL2
+#define UT_MATHEMATICS_APPRPOLYNOMIAL3
 #endif
 
 // Mathematices/Arithmetic
@@ -418,7 +419,7 @@
 // #define UT_MATHEMATICS_PDEFILTER1
 // #define UT_MATHEMATICS_PDEFILTER2
 // #define UT_MATHEMATICS_PDEFILTER3
-#define UT_MATHEMATICS_RASTERIZE2
+// #define UT_MATHEMATICS_RASTERIZE2
 // #define UT_MATHEMATICS_RASTERIZE3
 // #define UT_MATHEMATICS_SURFACEEXTRACTOR
 // #define UT_MATHEMATICS_SURFACEEXTRACTORCUBES

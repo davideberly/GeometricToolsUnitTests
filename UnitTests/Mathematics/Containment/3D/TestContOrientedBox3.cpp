@@ -96,7 +96,7 @@ void UnitTestContOrientedBox3::TestGetContainer()
 #endif
 
     OrientedBox3<double> estimatedBox{};
-    GetContainer(points, estimatedBox);
+    ContOrientedBox3<double>::GetContainer(points, estimatedBox);
 
     double const maxError = 1e-12;
     double error{};
@@ -143,16 +143,16 @@ void UnitTestContOrientedBox3::TestInContainer()
     Vector3<double> direction{ -1.0, -1.0, -2.0 };
 
     Vector3<double> point0 = origin; // (4, 4, 4)
-    bool inContainer = InContainer(point0, box);
+    bool inContainer = ContOrientedBox3<double>::InContainer(point0, box);
     UTAssert(!inContainer, "InContainer failed for point0.");
     Vector3<double> point1 = origin + direction;  // (3, 3, 2)
-    inContainer = InContainer(point1, box);
+    inContainer = ContOrientedBox3<double>::InContainer(point1, box);
     UTAssert(!inContainer, "InContainer failed for point1.");
     Vector3<double> point2 = origin + 3.0 * direction;  // (1, 1, -2)
-    inContainer = InContainer(point2, box);
+    inContainer = ContOrientedBox3<double>::InContainer(point2, box);
     UTAssert(inContainer, "InContainer failed for point2.");
     Vector3<double> point3 = { 0.999999, 1.999999, 2.999999 };
-    inContainer = InContainer(point3, box);
+    inContainer = ContOrientedBox3<double>::InContainer(point3, box);
     UTAssert(inContainer, "InContainer failed for point3.");
 
     Quaternion<double> q{ 1.0, 2.0, 3.0, 4.0 };
@@ -167,16 +167,16 @@ void UnitTestContOrientedBox3::TestInContainer()
     rotbox.extent = box.extent;
 
     point0 = rot * point0 + trn;
-    inContainer = InContainer(point0, rotbox);
+    inContainer = ContOrientedBox3<double>::InContainer(point0, rotbox);
     UTAssert(!inContainer, "InContainer failed for point0.");
     point1 = rot * point1 + trn;
-    inContainer = InContainer(point1, rotbox);
+    inContainer = ContOrientedBox3<double>::InContainer(point1, rotbox);
     UTAssert(!inContainer, "InContainer failed for point1.");
     point2 = rot * point2 + trn;
-    inContainer = InContainer(point2, rotbox);
+    inContainer = ContOrientedBox3<double>::InContainer(point2, rotbox);
     UTAssert(inContainer, "InContainer failed for point2.");
     point3 = rot * point3 + trn;
-    inContainer = InContainer(point3, rotbox);
+    inContainer = ContOrientedBox3<double>::InContainer(point3, rotbox);
     UTAssert(inContainer, "InContainer failed for point3.");
 }
 
@@ -243,7 +243,7 @@ void UnitTestContOrientedBox3::TestMergeContainers()
 #endif
 
     OrientedBox3<double> estimatedMerge{};
-    MergeContainers(box0, box1, estimatedMerge);
+    ContOrientedBox3<double>::MergeContainers(box0, box1, estimatedMerge);
 
     double const maxError = 1e-12;
     double error{};
@@ -268,19 +268,12 @@ void UnitTestContOrientedBox3::TestMergeContainers()
 
 namespace gtl
 {
-    template void GetContainer(std::vector<Vector3<float>> const&, OrientedBox3<float>&);
-    template bool InContainer(Vector3<float> const&, OrientedBox3<float> const&);
-    template void MergeContainers(OrientedBox3<float> const&, OrientedBox3<float> const&, OrientedBox3<float>&);
-
-    template void GetContainer(std::vector<Vector3<double>> const&, OrientedBox3<double>&);
-    template bool InContainer(Vector3<double> const&, OrientedBox3<double> const&);
-    template void MergeContainers(OrientedBox3<double> const&, OrientedBox3<double> const&, OrientedBox3<double>&);
+    template class ContOrientedBox3<float>;
+    template class ContOrientedBox3<double>;
 
 #if defined(GTL_INSTANTIATE_RATIONAL)
     using Rational = BSRational<UIntegerAP32>;
-    template void GetContainer(std::vector<Vector3<Rational>> const&, OrientedBox3<Rational>&);
-    template bool InContainer(Vector3<Rational> const&, OrientedBox3<Rational> const&);
-    template void MergeContainers(OrientedBox3<Rational> const&, OrientedBox3<Rational> const&, OrientedBox3<Rational>&);
+    template class ContOrientedBox3<Rational>;
 #endif
 }
 

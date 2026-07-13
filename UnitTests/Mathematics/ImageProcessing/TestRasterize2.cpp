@@ -14,7 +14,7 @@ namespace gtl
 
 UnitTestRasterize2::UnitTestRasterize2()
 {
-    UTInformation("Mathematics/ImageProcessing/Rasterize2 (tested by CollisionRecord");
+    UTInformation("Mathematics/ImageProcessing/Rasterize2 (tested by GTL/Applications/Window2)");
 }
 
 #else

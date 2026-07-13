@@ -34,23 +34,23 @@ void UnitTestContTetrahedron3::Test()
     tetra.v[3] = { 0.0, 0.0, 1.0 };
 
     point = { 0.2, 0.3, 0.4 };
-    contained = InContainer(point, tetra);
+    contained = ContTetrahedron3<double>::InContainer(point, tetra);
     UTAssert(contained, "Invalid result.");
 
     point = { -0.1, 0.25, 0.25 };
-    contained = InContainer(point, tetra);
+    contained = ContTetrahedron3<double>::InContainer(point, tetra);
     UTAssert(!contained, "Invalid result.");
 
     point = { 0.25, -0.1, 0.25 };
-    contained = InContainer(point, tetra);
+    contained = ContTetrahedron3<double>::InContainer(point, tetra);
     UTAssert(!contained, "Invalid result.");
 
     point = { 0.25, 0.25, -0.1 };
-    contained = InContainer(point, tetra);
+    contained = ContTetrahedron3<double>::InContainer(point, tetra);
     UTAssert(!contained, "Invalid result.");
 
     point = { 0.5, 0.5, 0.5 };
-    contained = InContainer(point, tetra);
+    contained = ContTetrahedron3<double>::InContainer(point, tetra);
     UTAssert(!contained, "Invalid result.");
 }
 
@@ -63,13 +63,12 @@ void UnitTestContTetrahedron3::Test()
 
 namespace gtl
 {
-    template bool InContainer(Vector3<float> const&, Tetrahedron3<float> const&);
-
-    template bool InContainer(Vector3<double> const&, Tetrahedron3<double> const&);
+    template class ContTetrahedron3<float>;
+    template class ContTetrahedron3<double>;
 
 #if defined(GTL_INSTANTIATE_RATIONAL)
     using Rational = BSRational<UIntegerAP32>;
-    template bool InContainer(Vector3<Rational> const&, Tetrahedron3<Rational> const&);
+    template class ContTetrahedron3<Rational>;
 #endif
 }
 

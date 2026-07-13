@@ -432,9 +432,6 @@
     <ClCompile Include="Mathematics\Approximation\ND\TestApprGaussianDistribution.cpp">
       <Filter>Mathematics\Approximation\ND</Filter>
     </ClCompile>
-    <ClCompile Include="Mathematics\Containment\2D\TestContScribeCircle2.cpp">
-      <Filter>Mathematics\Containment\2D</Filter>
-    </ClCompile>
     <ClCompile Include="Mathematics\Containment\3D\TestContTetrahedron3.cpp">
       <Filter>Mathematics\Containment\3D</Filter>
     </ClCompile>
@@ -1361,6 +1358,159 @@
     </ClCompile>
     <ClCompile Include="Mathematics\Approximation\Polynomial\TestApprPolynomial.cpp">
       <Filter>Mathematics\Approximation\Polynomial</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestPDEFilter.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestPDEFilter1.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestPDEFilter2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestPDEFilter3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestRasterize3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurvatureFlow2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurvatureFlow3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestGaussianBlur2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestGaussianBlur3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestGradientAnisotropic2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestGradientAnisotropic3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestMorphology.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestMorphology2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestMorphology3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastMarch.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastMarch2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastMarch3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestHistogram.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastGaussianBlur1.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastGaussianBlur2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastGaussianBlur3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurveExtractor.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurveExtractorSquares.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurveExtractorTriangles.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestMarchingCubes.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestSurfaceExtractorCubes.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestSurfaceExtractorMC.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestSurfaceExtractorTetrahedra.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestSurfaceExtractor.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\2D\TestContCircle2.cpp">
+      <Filter>Mathematics\Containment\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\2D\TestContEllipse2.cpp">
+      <Filter>Mathematics\Containment\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\2D\TestContPolygon2.cpp">
+      <Filter>Mathematics\Containment\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\2D\TestContAlignedBox2.cpp">
+      <Filter>Mathematics\Containment\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContCapsule3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContCylinder3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContEllipsoid3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContLozenge3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContPolyhedron3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\ND\TestIntrLineHyperplane.cpp">
+      <Filter>Mathematics\Intersection\ND</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\ND\TestIntrRayHyperplane.cpp">
+      <Filter>Mathematics\Intersection\ND</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\ND\TestIntrSegmentHyperplane.cpp">
+      <Filter>Mathematics\Intersection\ND</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContSphere.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContCircle3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\ND\TestContCone.cpp">
+      <Filter>Mathematics\Containment\ND</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Miscellaneous\TestSTLBinaryFile.cpp">
+      <Filter>Mathematics\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Miscellaneous\TestSortPointsOnCircle.cpp">
+      <Filter>Mathematics\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestTriangulateEC.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestIsPlanarGraph.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestMinimalCycleBasis.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestMinimumAreaCircle2.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestSeparatePoints2.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -26,19 +26,12 @@ UnitTestContOrientedBox2::UnitTestContOrientedBox2()
 
 namespace gtl
 {
-    template void GetContainer(std::vector<Vector2<float>> const&, OrientedBox2<float>&);
-    template bool InContainer(Vector2<float> const&, OrientedBox2<float> const&);
-    template void MergeContainers(OrientedBox2<float> const&, OrientedBox2<float> const&, OrientedBox2<float>&);
-
-    template void GetContainer(std::vector<Vector2<double>> const&, OrientedBox2<double>&);
-    template bool InContainer(Vector2<double> const&, OrientedBox2<double> const&);
-    template void MergeContainers(OrientedBox2<double> const&, OrientedBox2<double> const&, OrientedBox2<double>&);
+    template class ContOrientedBox2<float>;
+    template class ContOrientedBox2<double>;
 
 #if defined(GTL_INSTANTIATE_RATIONAL)
     using Rational = BSRational<UIntegerAP32>;
-    template void GetContainer(std::vector<Vector2<Rational>> const&, OrientedBox2<Rational>&);
-    template bool InContainer(Vector2<Rational> const&, OrientedBox2<Rational> const&);
-    template void MergeContainers(OrientedBox2<Rational> const&, OrientedBox2<Rational> const&, OrientedBox2<Rational>&);
+    template class ContOrientedBox2<Rational>;
 #endif
 }
 
