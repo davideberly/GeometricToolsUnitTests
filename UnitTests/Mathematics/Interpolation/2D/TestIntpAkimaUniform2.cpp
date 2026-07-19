@@ -11,8 +11,6 @@ namespace gtl
     public:
         UnitTestIntpAkimaUniform2();
 
-    private:
-        void Test();
     };
 }
 

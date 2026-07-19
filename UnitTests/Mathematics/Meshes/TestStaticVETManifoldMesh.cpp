@@ -303,7 +303,7 @@ void UnitTestStaticVETManifoldMesh::TestTriangle12()
 
 #else
 
-#include <GTL/Mathematics/Meshes/DynamicETManifoldMesh.h>
+#include <GTL/Mathematics/Meshes/StaticVETManifoldMesh.h>
 
 #endif
 

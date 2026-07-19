@@ -16,31 +16,39 @@ are
     Mesh
     TubeMesh
     RectangleMesh (mesh of planar 2D rectangle in 3D, let RectanglePatchMesh
-        handle this with a simple3 D parametric surface, then rename
+        handle this with a simple 3D parametric surface, then rename
         RectanglePatchMesh to RectangleMesh)
     RectanglePatchMesh (mesh of 3D parametric surface)
     RevolutionMesh
-    VolumetricMesh
 
 ==============================================================================
-NEEDS-FINAL-REFORMATTING-AND-UNIT-TESTING
+NEEDS-FINAL-PORTING
+
+Intersection
+   3D
+        IntrTriangle3AlignedBox3 (LOOKS LIKE AN ATTEMPT TO FACTOR OUT COMMON CODE)
+        IntrTriangle3OrientedBox3 (LOOKS LIKE AN ATTEMPT TO FACTOR OUT COMMON CODE)
+        IntrTriangle3CanonicalBox3  (LOOKS LIKE AN ATTEMPT TO FACTOR OUT COMMON CODE)
+
+==============================================================================
+NEEDS-UNIT-TESTING
 
 Containment
     2D
-        ContAlignedBox2 (reformatted)
-        ContCircle2 (reformatted)
-        ContEllipse2 (reformatted)
-        ContPolygon2 (reformatted)
+        ContAlignedBox2
+        ContCircle2
+        ContEllipse2
+        ContPolygon2
     3D
-        ContCapsule3 (reformatted)
-        ContCircle3 (reformatted)
-        ContCylinder3 (reformatted)
-        ContEllipsoid3 (reformatted)
-        ContLozenge3 (reformatted)
-        ContPolyhedron3 (reformatted)
-        ContSphere3 (reformatted)
+        ContCapsule3
+        ContCircle3
+        ContCylinder3
+        ContEllipsoid3
+        ContLozenge3
+        ContPolyhedron3
+        ContSphere3
     ND
-        ContCone (reformatted)
+        ContCone
 
 Distance
     2D  DistRay2Triangle2 (need to port GTE test app)
@@ -48,25 +56,25 @@ Distance
 
 Geometry
     2D
-        IsPlanarGraph (reformatted)
-        MinimalCycleBasis (reformatted)
-        MinimumAreaCircle2 (reformatted)
-        SeparatePoints2 (reformatted)
-        TriangulateEC (reformatted)
+        IsPlanarGraph
+        MinimalCycleBasis
+        MinimumAreaCircle2
+        SeparatePoints2
+        TriangulateEC
     3D
         AlignedBoxBV
         AlignedBoxTreeOfPoints
         AlignedBoxTreeOfSegments
         AlignedBoxTreeOfTriangles
-        BVTree (will be tested indirectly by derived classes)
-        BVTreeOfPoints (will be tested indirectly by derived classes)
-        BVTreeOfSegments (will be tested indirectly by derived classes)
-        BVTreeOfTriangles
-        ConformalMapGenus0
+        BVTree (will be tested indirectly by specializations)
+        BVTreeOfPoints (will be tested indirectly by specializations)
+        BVTreeOfSegments (will be tested indirectly by specializations)
+        BVTreeOfTriangles (will be tested indirectly by specializations)
+        ConformalMapGenusZero (renamed prefix 0 to Zero)
         ExtremalQuery3
         ExtremalQuery3BSP
         ExtremalQuery3PRJ
-        GenerateMeshUV
+        GenerateMeshUV (GPU versions need padding adjustment)
         MinimumVolumeBox3
         MinimumVolumeSphere3
         OrientedBoxBV.h
@@ -79,38 +87,38 @@ Geometry
         CLODPolyline
 
 ImageProcessing
-    CurvatureFlow2 (reformatted)
-    CurvatureFlow3 (reformatted)
+    CurvatureFlow2
+    CurvatureFlow3
     CurveExtractor (abstract base class)
-    CurveExtractorSquares (reformatted)
-    CurveExtractorTriangles (reformatted)
-    FastGaussianBlur1 (reformatted)
-    FastGaussianBlur2 (reformatted)
-    FastGaussianBlur3 (reformatted)
-    FastMarch (reformatted)
-    FastMarch2 (reformatted)
-    FastMarch3 (reformatted)
-    GaussianBlur2 (reformatted)
-    GaussianBlur3 (reformatted)
-    GradientAnisotropic2 (reformatted)
-    GradientAnisotropic3 (reformatted)
-    Histogram (reformatted)
-    Image (reformatted, base is now Multiarray)
-    Image2 (reformatted, base is now Multiarray)
-    Image3 (reformatted, base is now Multiarray)
-    MarchingCubes (reformatted)
-    Morphology (reformatted)
-    Morphology2 (reformatted)
-    Morphology3 (reformatted)
-    PdeFilter (reformatted)
-    PdeFilter1 (reformatted)
-    PdeFilter2 (reformatted)
-    PdeFilter3 (reformatted)
-    Rasterize3 (reformatted)
-    SurfaceExtractor (reformatted)
-    SurfaceExtractorCubes (reformatted)
-    SurfaceExtractorMC (reformatted)
-    SurfaceExtractorTetrahedra (reformatted)
+    CurveExtractorSquares
+    CurveExtractorTriangles
+    FastGaussianBlur1
+    FastGaussianBlur2
+    FastGaussianBlur3
+    FastMarch
+    FastMarch2
+    FastMarch3
+    GaussianBlur2
+    GaussianBlur3
+    GradientAnisotropic2
+    GradientAnisotropic3
+    Histogram
+    Image (base is now Multiarray)
+    Image2 (base is now Multiarray)
+    Image3 (base is now Multiarray)
+    MarchingCubes
+    Morphology
+    Morphology2
+    Morphology3
+    PdeFilter
+    PdeFilter1
+    PdeFilter2
+    PdeFilter3
+    Rasterize3
+    SurfaceExtractor
+    SurfaceExtractorCubes
+    SurfaceExtractorMC
+    SurfaceExtractorTetrahedra
 
 Interpolation
     1D
@@ -148,7 +156,7 @@ Intersection
         IntrSegment2Arc2
         IntrSegment2Circle2
         IntrSegment2OrientedBox2
-   3D
+    3D
         IntrAlignedBox3Cone3
         IntrAlignedBox3Cylinder3
         IntrAlignedBox3OrientedBox3
@@ -181,11 +189,10 @@ Intersection
         IntrSphere3Sphere3
         IntrSphere3Triangle3
         IntrTetrahedron3Tetrahedron3
-        IntrTriangle3OrientedBox3
-    ND
-        IntrLineHyperplane (reformatted)
-        IntrRayHyperplane (reformatted)
-        IntrSegmentHyperplane (reformatted)
+ND
+        IntrLineHyperplane
+        IntrRayHyperplane
+        IntrSegmentHyperplane
 
 Meshes
     DynamicETNonmanifoldMesh
@@ -201,7 +208,7 @@ Meshes
     VolumetricMesh
 
 Miscellaneous
-    SortPointsOnCircle (reformatted)
+    SortPointsOnCircle
 
 
 ==============================================================================
