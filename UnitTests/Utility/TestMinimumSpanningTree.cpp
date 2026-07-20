@@ -181,10 +181,10 @@ void UnitTestMinimumSpanningTree::TestJohnsPermutedExample()
     edges[13] = { 11, 13 };
     edges[14] = { 12, 13 };
 
-    std::vector<std::size_t> permuted(numEdges);
-    std::iota(permuted.begin(), permuted.end(), 0);
-    std::default_random_engine dre{};
-    std::shuffle(permuted.begin(), permuted.end(), dre);
+    std::vector<std::size_t> permuted =
+    {
+        4, 0, 3, 1, 13, 7, 14, 11, 12, 8, 5, 2, 9, 10, 6
+    };
     std::vector<std::array<std::size_t, 2>> permEdges(numEdges);
     for (std::size_t i = 0; i < numEdges; ++i)
     {
