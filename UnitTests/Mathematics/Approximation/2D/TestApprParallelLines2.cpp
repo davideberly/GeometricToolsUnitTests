@@ -84,6 +84,15 @@ namespace gtl
 {
     template class ApprParallelLines2<float>;
     template class ApprParallelLines2<double>;
+    // The class uses RootsGeneralPolynomial which has member
+    // functions
+    //   void Solve(std::vector<T> const&, bool, std::vector<T>&)
+    // and
+    //   void Solve(std::vector<Rational> const&, bool, std::vector<Rational>&)
+    // The following instantiation will fail because the two Solve
+    // functions resolve to the same signature (T = Rational).
+    //   using Rational = BSRational<UIntegerAP32>;
+    //   template class ApprParallelLines2<Rational>;
 }
 
 #endif

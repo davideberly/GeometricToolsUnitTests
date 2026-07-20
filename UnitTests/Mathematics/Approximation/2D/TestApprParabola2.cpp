@@ -64,12 +64,20 @@ void UnitTestApprParabola2::Test()
 
 #else
 
+#if defined(GTL_INSTANTIATE_RATIONAL)
+#include <GTL/Mathematics/Arithmetic/ArbitraryPrecision.h>
+#endif
 #include <GTL/Mathematics/Approximation/2D/ApprParabola2.h>
 
 namespace gtl
 {
     template class ApprParabola2<float>;
     template class ApprParabola2<double>;
+
+#if defined(GTL_INSTANTIATE_RATIONAL)
+    using Rational = BSRational<UIntegerAP32>;
+    template class ApprParabola2<Rational>;
+#endif
 }
 
 #endif

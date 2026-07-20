@@ -22,15 +22,20 @@ UnitTestApprCurveByArcs::UnitTestApprCurveByArcs()
 
 #else
 
+#if defined(GTL_INSTANTIATE_RATIONAL)
+#include <GTL/Mathematics/Arithmetic/ArbitraryPrecision.h>
+#endif
 #include <GTL/Mathematics/Approximation/2D/ApprCurveByArcs.h>
 
 namespace gtl
 {
-    template void ApproximateCurveByArcs(std::shared_ptr<ParametricCurve<float, 2>> const&,
-        std::size_t, std::vector<float>&, std::vector<Vector2<float>>&, std::vector<Arc2<float>>&, float);
+    template class ApprCurveByArcs<float>;
+    template class ApprCurveByArcs<double>;
 
-    template void ApproximateCurveByArcs(std::shared_ptr<ParametricCurve<double, 2>> const&,
-        std::size_t, std::vector<double>&, std::vector<Vector2<double>>&, std::vector<Arc2<double>>&, double);
+#if defined(GTL_INSTANTIATE_RATIONAL)
+    using Rational = BSRational<UIntegerAP32>;
+    template class ApprCurveByArcs<Rational>;
+#endif
 }
 
 #endif
