@@ -1782,6 +1782,24 @@
     <ClCompile Include="Mathematics\Intersection\3D\TestIntrSphere3Triangle3.cpp">
       <Filter>Mathematics\Intersection\3D</Filter>
     </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrLine3Rectangle3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrRay3Rectangle3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrSegment3Rectangle3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrTriangle3CanonicalBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrTriangle3AlignedBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrTriangle3OrientedBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UnitTestsConfiguration.h">
@@ -1808,10 +1826,7 @@
     <ClInclude Include="Mathematics\UTMathematics.h">
       <Filter>Mathematics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GeometricToolsLibrary\GTL\Mathematics\Intersection\2D\IntrOrientedBox2Circle2.h">
-      <Filter>Mathematics\Intersection\2D</Filter>
-    </ClInclude>
-  </ItemGroup>
+   </ItemGroup>
   <ItemGroup>
     <None Include="Mathematics\Approximation\2D\Input\RandomUnitPoints2D_Double_1024.binary">
       <Filter>Mathematics\Approximation\2D\Input</Filter>

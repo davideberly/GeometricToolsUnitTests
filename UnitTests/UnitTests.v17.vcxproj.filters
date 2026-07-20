@@ -432,9 +432,6 @@
     <ClCompile Include="Mathematics\Approximation\ND\TestApprGaussianDistribution.cpp">
       <Filter>Mathematics\Approximation\ND</Filter>
     </ClCompile>
-    <ClCompile Include="Mathematics\Containment\2D\TestContScribeCircle2.cpp">
-      <Filter>Mathematics\Containment\2D</Filter>
-    </ClCompile>
     <ClCompile Include="Mathematics\Containment\3D\TestContTetrahedron3.cpp">
       <Filter>Mathematics\Containment\3D</Filter>
     </ClCompile>
@@ -1362,6 +1359,447 @@
     <ClCompile Include="Mathematics\Approximation\Polynomial\TestApprPolynomial.cpp">
       <Filter>Mathematics\Approximation\Polynomial</Filter>
     </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestPDEFilter.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestPDEFilter1.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestPDEFilter2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestPDEFilter3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestRasterize3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurvatureFlow2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurvatureFlow3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestGaussianBlur2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestGaussianBlur3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestGradientAnisotropic2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestGradientAnisotropic3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestMorphology.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestMorphology2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestMorphology3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastMarch.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastMarch2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastMarch3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestHistogram.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastGaussianBlur1.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastGaussianBlur2.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestFastGaussianBlur3.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurveExtractor.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurveExtractorSquares.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestCurveExtractorTriangles.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestMarchingCubes.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestSurfaceExtractorCubes.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestSurfaceExtractorMC.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestSurfaceExtractorTetrahedra.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\ImageProcessing\TestSurfaceExtractor.cpp">
+      <Filter>Mathematics\ImageProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\2D\TestContCircle2.cpp">
+      <Filter>Mathematics\Containment\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\2D\TestContEllipse2.cpp">
+      <Filter>Mathematics\Containment\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\2D\TestContPolygon2.cpp">
+      <Filter>Mathematics\Containment\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\2D\TestContAlignedBox2.cpp">
+      <Filter>Mathematics\Containment\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContCapsule3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContCylinder3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContEllipsoid3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContLozenge3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContPolyhedron3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\ND\TestIntrLineHyperplane.cpp">
+      <Filter>Mathematics\Intersection\ND</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\ND\TestIntrRayHyperplane.cpp">
+      <Filter>Mathematics\Intersection\ND</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\ND\TestIntrSegmentHyperplane.cpp">
+      <Filter>Mathematics\Intersection\ND</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContSphere.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\3D\TestContCircle3.cpp">
+      <Filter>Mathematics\Containment\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Containment\ND\TestContCone.cpp">
+      <Filter>Mathematics\Containment\ND</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Miscellaneous\TestSTLBinaryFile.cpp">
+      <Filter>Mathematics\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Miscellaneous\TestSortPointsOnCircle.cpp">
+      <Filter>Mathematics\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestTriangulateEC.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestIsPlanarGraph.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestMinimalCycleBasis.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestMinimumAreaCircle2.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\2D\TestSeparatePoints2.cpp">
+      <Filter>Mathematics\Geometry\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Interpolation\1D\TestIntpAkimaNonuniform1.cpp">
+      <Filter>Mathematics\Interpolation\1D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Interpolation\1D\TestIntpAkimaUniform1.cpp">
+      <Filter>Mathematics\Interpolation\1D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Interpolation\2D\TestIntpVectorField2.cpp">
+      <Filter>Mathematics\Interpolation\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Interpolation\3D\TestIntpAkimaUniform3.cpp">
+      <Filter>Mathematics\Interpolation\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Interpolation\3D\TestIntpCubic3.cpp">
+      <Filter>Mathematics\Interpolation\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Interpolation\3D\TestIntpLinear3.cpp">
+      <Filter>Mathematics\Interpolation\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Interpolation\3D\TestIntpSphere3.cpp">
+      <Filter>Mathematics\Interpolation\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Meshes\TestStaticVTSManifoldMesh.cpp">
+      <Filter>Mathematics\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Meshes\TestDynamicVTSManifoldMesh.cpp">
+      <Filter>Mathematics\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Interpolation\3D\TestIntpLinearNonuniform3.cpp">
+      <Filter>Mathematics\Interpolation\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Meshes\TestDynamicETNonmanifoldMesh.cpp">
+      <Filter>Mathematics\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Meshes\TestDynamicVETNonmanifoldMesh.cpp">
+      <Filter>Mathematics\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Meshes\TestVolumetricMesh.cpp">
+      <Filter>Mathematics\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Meshes\TestMeshSmoother.cpp">
+      <Filter>Mathematics\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Meshes\TestMeshCurvature.cpp">
+      <Filter>Mathematics\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Meshes\TestVertexCollapseMesh.cpp">
+      <Filter>Mathematics\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\ND\TestCLODPolyline.cpp">
+      <Filter>Mathematics\Geometry\ND</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestConformalMapGenusZero.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestExtremalQuery3.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestExtremalQuery3PRJ.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestExtremalQuery3BSP.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestGenerateMeshUV.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestMinimumVolumeBox3.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestMinimumVolumeSphere3.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestSeparatePoints3.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestSplitPlaneByMesh.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestAlignedBoxBV.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestOrientedBoxBV.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestBVTree.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestBVTreeOfPoints.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestBVTreeOfSegments.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestBVTreeOfTriangles.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestAlignedBoxTreeOfPoints.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestAlignedBoxTreeOfSegments.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestAlignedBoxTreeOfTriangles.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestOrientedBoxTreeOfPoints.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestOrientedBoxTreeOfSegments.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Geometry\3D\TestOrientedBoxTreeOfTriangles.cpp">
+      <Filter>Mathematics\Geometry\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrAlignedBox2Circle2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrAlignedBox2OrientedBox2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrCircle2Circle2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrCircle2Arc2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrArc2Arc2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrHalfspace2Polygon2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrLine2AlignedBox2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrLine2OrientedBox2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrRay2AlignedBox2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrRay2OrientedBox2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrSegment2AlignedBox2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrSegment2OrientedBox2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrOrientedBox2Circle2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrOrientedBox2Cone2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrOrientedBox2OrientedBox2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrLine2Circle2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrRay2Circle2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrSegment2Circle2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrLine2Arc2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrRay2Arc2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\2D\TestIntrSegment2Arc2.cpp">
+      <Filter>Mathematics\Intersection\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrAlignedBox3Cone3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrAlignedBox3Cylinder3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrCanonicalBox3Cylinder3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrAlignedBox3OrientedBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrCapsule3Capsule3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrConvexMesh3Plane3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrEllipsoid3Ellipsoid3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrHalfspace3Capsule3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrHalfspace3Cylinder3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrHalfspace3Ellipsoid3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrHalfspace3OrientedBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrHalfspace3Segment3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrHalfspace3Sphere3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrHalfspace3Triangle3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrLine3Cone3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrRay3Cone3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrSegment3Cone3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrLine3Torus3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrOrientedBox3Cone3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrOrientedBox3Cylinder3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrOrientedBox3Frustum3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrOrientedBox3OrientedBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrPlane3Capsule3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrPlane3Ellipsoid3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrPlane3OrientedBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrPlane3Sphere3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrPlane3Triangle3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrSphere3Cone3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrSphere3Frustum3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrSphere3Sphere3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrSphere3Triangle3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrLine3Rectangle3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrRay3Rectangle3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrSegment3Rectangle3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrTriangle3CanonicalBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrTriangle3AlignedBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mathematics\Intersection\3D\TestIntrTriangle3OrientedBox3.cpp">
+      <Filter>Mathematics\Intersection\3D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UnitTestsConfiguration.h">
@@ -1388,7 +1826,7 @@
     <ClInclude Include="Mathematics\UTMathematics.h">
       <Filter>Mathematics</Filter>
     </ClInclude>
-  </ItemGroup>
+   </ItemGroup>
   <ItemGroup>
     <None Include="Mathematics\Approximation\2D\Input\RandomUnitPoints2D_Double_1024.binary">
       <Filter>Mathematics\Approximation\2D\Input</Filter>
