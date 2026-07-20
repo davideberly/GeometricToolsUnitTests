@@ -2739,6 +2739,13 @@ void UTMathematics::Intersection3D::Execute()
     Postcall();
 #endif
 
+#if defined(UT_MATHEMATICS_INTRLINE3RECTANGLE3)
+    Precall();
+    extern void TestIntrLine3Rectangle3();
+    TestIntrLine3Sphere3();
+    Postcall();
+#endif
+
 #if defined(UT_MATHEMATICS_INTRLINE3SPHERE3)
     Precall();
     extern void TestIntrLine3Sphere3();
@@ -2886,6 +2893,13 @@ void UTMathematics::Intersection3D::Execute()
     Postcall();
 #endif
 
+#if defined(UT_MATHEMATICS_INTRRAY3RECTANGLE3)
+    Precall();
+    extern void TestIntrRay3Rectangle3();
+    TestIntrRay3Sphere3();
+    Postcall();
+#endif
+
 #if defined(UT_MATHEMATICS_INTRRAY3SPHERE3)
     Precall();
     extern void TestIntrRay3Sphere3();
@@ -2939,6 +2953,13 @@ void UTMathematics::Intersection3D::Execute()
     Precall();
     extern void TestIntrSegment3OrientedBox3();
     TestIntrSegment3OrientedBox3();
+    Postcall();
+#endif
+
+#if defined(UT_MATHEMATICS_INTRSEGMENT3RECTANGLE3)
+    Precall();
+    extern void TestIntrSegment3Rectangle3();
+    TestIntrSegment3Sphere3();
     Postcall();
 #endif
 

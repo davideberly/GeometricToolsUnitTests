@@ -22,15 +22,6 @@ are
     RevolutionMesh
 
 ==============================================================================
-NEEDS-FINAL-PORTING
-
-Intersection
-   3D
-        IntrTriangle3AlignedBox3 (LOOKS LIKE AN ATTEMPT TO FACTOR OUT COMMON CODE)
-        IntrTriangle3OrientedBox3 (LOOKS LIKE AN ATTEMPT TO FACTOR OUT COMMON CODE)
-        IntrTriangle3CanonicalBox3  (LOOKS LIKE AN ATTEMPT TO FACTOR OUT COMMON CODE)
-
-==============================================================================
 NEEDS-UNIT-TESTING
 
 Containment
@@ -172,6 +163,7 @@ Intersection
         IntrHalfspace3Sphere3
         IntrHalfspace3Triangle3
         IntrLine3Cone3
+        IntrLine3Rectangle3
         IntrLine3Torus3
         IntrOrientedBox3Cone3
         IntrOrientedBox3Cylinder3
@@ -183,12 +175,17 @@ Intersection
         IntrPlane3Sphere3
         IntrPlane3Triangle3
         IntrRay3Cone3
+        IntrRay3Rectangle3
         IntrSegment3Cone3
+        IntrSegment3Rectangle3
         IntrSphere3Cone3
         IntrSphere3Frustum3
         IntrSphere3Sphere3
         IntrSphere3Triangle3
         IntrTetrahedron3Tetrahedron3
+        IntrTriangle3AlignedBox3
+        IntrTriangle3OrientedBox3
+        IntrTriangle3CanonicalBox3
 ND
         IntrLineHyperplane
         IntrRayHyperplane
