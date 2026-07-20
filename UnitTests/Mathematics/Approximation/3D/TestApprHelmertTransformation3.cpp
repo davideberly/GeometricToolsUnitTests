@@ -20,6 +20,7 @@ namespace gtl
 
 UnitTestApprHelmertTransformation3::UnitTestApprHelmertTransformation3()
 {
+    // Also tested by GTL/VisualTests/Mathematics/Approximation/ApproximateHelmertTransformation3.
     UTInformation("Mathematics/Approximation/3D/ApprHelmertTransformation3");
 
     Test();

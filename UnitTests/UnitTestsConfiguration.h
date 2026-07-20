@@ -3,7 +3,7 @@
 // Copyright (c) 2025 Geometric Tools LLC
 // Distributed under the Boost Software License, Version 1.0
 // https://www.boost.org/LICENSE_1_0.txt
-// File Version: 0.0.2025.10.29
+// File Version: not applicable
 
 #pragma once
 
@@ -15,7 +15,7 @@
 #define UT_MATHEMATICS
 //#define UT_MATHEMATICS_ALGEBRA
 //#define UT_MATHEMATICS_APPROXIMATION_2D
-//#define UT_MATHEMATICS_APPROXIMATION_3D
+#define UT_MATHEMATICS_APPROXIMATION_3D
 //#define UT_MATHEMATICS_APPROXIMATION_ND
 //#define UT_MATHEMATICS_APPROXIMATION_POLYNOMIAL
 //#define UT_MATHEMATICS_ARITHMETIC
@@ -55,7 +55,7 @@
 //#define UT_MATHEMATICS_SURFACES
 //#define UT_MATHEMATICS_VOLUMES
 
-// Utility
+// Utility (all passed)
 #if defined(UT_UTILITY)
 #define UT_UTILITY_ATOMICMINMAX
 #define UT_UTILITY_CONTAINERADAPTER
@@ -72,10 +72,10 @@
 #define UT_UTILITY_WEAKPTRCOMPARE
 #endif
 
-// Mathematics
+// Mathematics (all passed)
 #if defined(UT_MATHEMATICS)
 
-// Mathematics/Algebra
+// Mathematics/Algebra (all passed)
 #if defined(UT_MATHEMATICS_ALGEBRA)
 #define UT_MATHEMATICS_AFFINETRANSFORM
 #define UT_MATHEMATICS_AXISANGLE
@@ -91,7 +91,7 @@
 #define UT_MATHEMATICS_VECTOR
 #endif
 
-// Mathematics/Approximation/2D
+// Mathematics/Approximation/2D (all passed)
 #if defined(UT_MATHEMATICS_APPROXIMATION_2D)
 #define UT_MATHEMATICS_APPRCIRCLE2
 #define UT_MATHEMATICS_APPRCURVEBYARCS
@@ -103,7 +103,7 @@
 #define UT_MATHEMATICS_APPRPARALLELLINES2
 #endif
 
-// Mathematics/Approximation/3D
+// Mathematics/Approximation/3D (all passed)
 #if defined(UT_MATHEMATICS_APPROXIMATION_3D)
 #define UT_MATHEMATICS_APPRCONE3
 #define UT_MATHEMATICS_APPRCYLINDER3
