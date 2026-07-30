@@ -27,6 +27,7 @@ namespace gtl
         void Test2();
         void Test3();
         void Test4();
+        void Test5();
     };
 }
 
@@ -39,6 +40,7 @@ UnitTestSingularValueDecomposition::UnitTestSingularValueDecomposition()
     Test2();
     Test3();
     Test4();
+    Test5();
 }
 
 void UnitTestSingularValueDecomposition::Test0()
@@ -188,6 +190,33 @@ void UnitTestSingularValueDecomposition::Test4()
     Matrix<double, 6, 6> E = Transpose(U) * A * V - S;
     double normE = L2Norm(E);
     UTAssert(normE <= maxError, "Error is too large.");
+}
+
+void UnitTestSingularValueDecomposition::Test5()
+{
+    Matrix2x2<double> mat{};
+    mat(0, 0) = 1.0;
+    mat(0, 1) = 2.0;
+    mat(1, 0) = -4.0;
+    mat(1, 1) = 5.0;
+    SingularValueDecomposition<double> svd(2, 2, 32);
+    svd.Solve(&mat[0]);
+
+    Matrix2x2<double> U{}, V{}, S{};
+    svd.GetU(&U[0]);
+    svd.GetV(&V[0]);
+    svd.GetS(&S[0]);
+    Matrix2x2<double> product = U * S * Transpose(V);
+    double maxError = 0.0;
+    for (std::size_t row = 0; row < 2; ++row)
+    {
+        for (std::size_t col = 0; col < 2; ++col)
+        {
+            double error = std::fabs(mat(row, col) - product(row, col));
+            maxError = std::max(error, maxError);
+        }
+    }
+    UTAssert(maxError <= 1e-15, "Error is too large.");
 }
 
 #else
