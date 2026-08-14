@@ -563,8 +563,8 @@ void UTMathematics::Containment3D::Execute()
 
 #if defined(UT_MATHEMATICS_CONTPOINTINPOLYHEDRON3)
     Precall();
-    extern void TestContPointInPolyhedron3();
-    TestContPointInPolyhedron3();
+    extern void TestContPolyhedron3();
+    TestContPolyhedron3();
     Postcall();
 #endif
 
