@@ -1,6 +1,7 @@
 #if defined(GTL_UNIT_TESTS)
 #include <UnitTestsExceptions.h>
 #include <GTL/Mathematics/Containment/3D/ContLozenge3.h>
+#include <fstream>
 using namespace gtl;
 
 namespace gtl
@@ -9,12 +10,29 @@ namespace gtl
     {
     public:
         UnitTestContLozenge3();
+
+    private:
+        void Test();
     };
 }
 
 UnitTestContLozenge3::UnitTestContLozenge3()
 {
-    UTInformation("Mathematics/Containment/3D/ContLozenge3 [NEEDS UNIT TESTS]");
+    UTInformation("Mathematics/Containment/3D/ContLozenge3");
+
+    Test();
+}
+
+void UnitTestContLozenge3::Test()
+{
+    std::vector<Vector3<float>> points(128);
+    std::ifstream input("Mathematics/Containment/3D/Input/points128.binary", std::ios::binary);
+    UTAssert(input, "Cannot load point file.");
+    input.read(reinterpret_cast<char*>(points.data()), points.size() * sizeof(Vector3<float>));
+    input.close();
+
+    Lozenge3<float> lozenge{};
+    ContLozenge3<float>::GetContainer(points, lozenge);
 }
 
 #else
