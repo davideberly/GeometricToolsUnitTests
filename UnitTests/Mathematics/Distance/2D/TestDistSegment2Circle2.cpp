@@ -53,210 +53,298 @@ void UnitTestDistSegment2Circle2::Test()
     Circle2<double> circle{};
     SCQuery query{};
     SCQuery::Output output{}, expected{};
-    Vector2<double> trn = { 0.01234, 0.56789 };
     Vector2<double> origin{}, direction{};
 
-    // 1 (minimum distance when gradient is uniquely zero)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    origin = { 4.0, 3.0 };
-    direction = { -1.0, 1.0 };
-    segment.p[0] = origin - 10.0 * direction;
-    segment.p[1] = origin + 10.0 * direction;
-    output = query(segment, circle);
-    expected.distance = 3.9497474683058327;
-    expected.sqrDistance = 15.600505063388335;
-    expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.525;
-    expected.closest[0][0] = { 3.5, 3.5 };
-    expected.closest[0][1] = { 0.707106781186547524, 0.707106781186547524 };
-    Validate(output, expected);
+    // Line does not intersect with circle or is tangent to the circle.
 
-    // 1' (minimum distance when gradient is uniquely zero)
-    circle.center += trn;
-    segment.p[0] += trn;
-    segment.p[1] += trn;
+    // Segment p[0] and p[1] to left of line point closest to circle.
+    segment.p[0] = { -2.0, 2.0 };
+    segment.p[1] = { -0.5, 2.0 };
     output = query(segment, circle);
-    expected.distance = 3.9497474683058327;
-    expected.sqrDistance = 15.600505063388336;
-    expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.525;
-    expected.closest[0][0] = { 3.51234, 4.06789 };
-    expected.closest[0][1] = { 0.71944678118654748, 1.2749967811865475 };
-    Validate(output, expected);
-
-    // 2 (line outside circle, segment.p[0] closest)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    origin = { 4.0, 3.0 };
-    direction = { -1.0, 1.0 };
-    segment.p[0] = origin + 10.0 * direction;
-    segment.p[1] = origin + 20.0 * direction;
-    output = query(segment, circle);
-    expected.distance = 13.317821063276353;
-    expected.sqrDistance = 177.36435787344729;
-    expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.0;
-    expected.closest[0][0] = { -6.0, 13.0 };
-    expected.closest[0][1] = { -0.41905817746174689, 0.90795938450045166 };
-    Validate(output, expected);
-
-    // 2' (line outside circle, segment.p[1] closest)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    origin = { 4.0, 3.0 };
-    direction = { -1.0, 1.0 };
-    segment.p[0] = origin - 20.0 * direction;
-    segment.p[1] = origin - 10.0 * direction;
-    output = query(segment, circle);
-    expected.distance = 14.652475842498529;
-    expected.sqrDistance = 214.69504831500296;
+    expected.distance = Length(segment.p[1]) - 1.0; // 1.0615528128088303;
+    expected.sqrDistance = 1.1268943743823394;
     expected.numClosestPairs = 1;
     expected.parameter[0] = 1.0;
-    expected.closest[0][0] = { 14.0, -7.0 };
-    expected.closest[0][1] = { 0.89442719099991586, -0.44721359549995793 };
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { -0.5, 2.0 };
+    expected.closest[0][1] = { -0.24253562503633297, 0.97014250014533188 }; // = { -0.5, 2 } / distance
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
     Validate(output, expected);
 
-    // 3 (line intersects circle 2 points, segment.p[1] closest)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    origin = { 0.25, 0.25 };
-    direction = { 4.0, 3.0 };
-    segment.p[0] = origin - 20.0 * direction;
-    segment.p[1] = origin - 10.0 * direction;
+    // Segment p[0] to left of line point closest to circle and p[1] to right
+    // line point closest to circle.
+    segment.p[0] = { -2.0, 2.0 };
+    segment.p[1] = { 1.0, 2.0 };
     output = query(segment, circle);
-    expected.distance = 48.650025176227253;
-    expected.sqrDistance = 2366.8249496475455;
+    expected.distance = 1.0;
+    expected.sqrDistance = 1.0;
+    expected.numClosestPairs = 1;
+    expected.parameter[0] = 0.66666666666666663;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 0.0, 2.0 };
+    expected.closest[0][1] = { 0.0, 1.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
+    Validate(output, expected);
+
+    // Segment p[0] and p[1] to right of line point closest to circle.
+    segment.p[0] = { 0.5, 2.0 };
+    segment.p[1] = { 1.0, 2.0 };
+    output = query(segment, circle);
+    expected.distance = Length(segment.p[0]) - 1.0; // 1.0615528128088303;
+    expected.sqrDistance = 1.1268943743823394;
+    expected.numClosestPairs = 1;
+    expected.parameter[0] = 0.0;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 0.5, 2.0 };
+    expected.closest[0][1] = { 0.24253562503633297, 0.97014250014533188 }; // = { 0.5, 2 } / distance
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
+    Validate(output, expected);
+
+
+    // Line intersects circle in 2 points. Line interval is [t0,t1].
+    // Segment interval is [s0,s1] = [0,1].
+
+    // s0 < s1 < t0 < t1
+    segment.p[0] = { -3.0, 0.0 };
+    segment.p[1] = { -2.0, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 1.0;
+    expected.sqrDistance = 1.0;
     expected.numClosestPairs = 1;
     expected.parameter[0] = 1.0;
-    expected.closest[0][0] = { -39.75, -29.75 };
-    expected.closest[0][1] = { -0.80060382364181659, -0.59919405668790049 };
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { -2.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
     Validate(output, expected);
 
-    // 4 (line intersects circle 2 points, segment.p[0] closest)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    origin = { 0.25, 0.25 };
-    direction = { 4.0, 3.0 };
-    segment.p[0] = origin + 10.0 * direction;
-    segment.p[1] = origin + 20.0 * direction;
-    output = query(segment, circle);
-    expected.distance = 49.350024826210365;
-    expected.sqrDistance = 2435.4249503475794;
-    expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.0;
-    expected.closest[0][0] = { 40.25, 30.25 };
-    expected.closest[0][1] = { 0.79940377664019213, 0.60079414269231834 };
-    Validate(output, expected);
-
-    // 4' (direction opposite of 4, line intersects circle 2 points, segment.p[0] closest)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    origin = { 0.25, 0.25 };
-    direction = { -4.0, -3.0 };
-    segment.p[0] = origin + 10.0 * direction;
-    segment.p[1] = origin + 20.0 * direction;
-    output = query(segment, circle);
-    expected.distance = 48.650025176227253;
-    expected.sqrDistance = 2366.8249496475455;
-    expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.0;
-    expected.closest[0][0] = { -39.75, -29.75 };
-    expected.closest[0][1] = { -0.80060382364181659, -0.59919405668790049 };
-    Validate(output, expected);
-
-    // 5 (The segment overlaps the t1-point. Remove the t0-point.)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    origin = { 0.25, 0.25 };
-    direction = { 4.0, 3.0 };
-    segment.p[0] = origin + 0.0625 * direction;
-    segment.p[1] = origin + 2.0 * direction;
+    // s0 < s1 = t0 < t1
+    segment.p[0] = { -3.0, 0.0 };
+    segment.p[1] = { -1.0, 0.0 };
     output = query(segment, circle);
     expected.distance = 0.0;
     expected.sqrDistance = 0.0;
     expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.034709596673229308;
-    expected.closest[0][0] = { 0.76899937421752718, 0.63924953066314538 };
-    expected.closest[0][1] = { 0.76899937421752718, 0.63924953066314538 };
+    expected.parameter[0] = 1.0;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { -1.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
     Validate(output, expected);
 
-    // 5' (The segment overlaps the t0-point. Remove the t1-point.)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    origin = { 0.25, 0.25 };
-    direction = { 4.0, 3.0 };
-    segment.p[0] = origin - 2.0 * direction;
-    segment.p[1] = origin + 0.0625 * direction;
+    // s0 < t0 < s1 < t1
+    segment.p[0] = { -3.0, 0.0 };
+    segment.p[1] = { 0.5, 0.0 };
     output = query(segment, circle);
     expected.distance = 0.0;
     expected.sqrDistance = 0.0;
     expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.83890916676151184;
-    expected.closest[0][0] = { -0.82899937421752767, -0.55924953066314576 };
-    expected.closest[0][1] = { -0.82899937421752767, -0.55924953066314576 };
+    expected.parameter[0] = 4.0 / 7.0; // 0.57142857142857140;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { -1.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
     Validate(output, expected);
 
-    // 6 (segment inside the circle, segment.p[0] closer)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    segment.p[0] = { -0.25, 0.5 };
-    segment.p[1] = { +0.125, 0.5 };
+    // s0 < t0 < t1 < s1
+    segment.p[0] = { -2.0, 0.0 };
+    segment.p[1] = { 2.0, 0.0 };
     output = query(segment, circle);
-    expected.distance = 0.44098300562505255;
-    expected.sqrDistance = 0.19446601125010513;
+    expected.distance = 0.0;
+    expected.sqrDistance = 0.0;
+    expected.numClosestPairs = 2;
+    expected.parameter[0] = 0.25;
+    expected.parameter[1] = 0.75;
+    expected.closest[0][0] = { -1.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 1.0, 0.0 };
+    expected.closest[1][1] = { 1.0, 0.0 };
+    Validate(output, expected);
+
+    // s0 < t0 < t1 = s1
+    segment.p[0] = { -2.0, 0.0 };
+    segment.p[1] = { 1.0, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 0.0;
+    expected.sqrDistance = 0.0;
+    expected.numClosestPairs = 2;
+    expected.parameter[0] = 1.0 / 3.0; // 0.33333333333333331;
+    expected.parameter[1] = 1.0;
+    expected.closest[0][0] = { -1.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 1.0, 0.0 };
+    expected.closest[1][1] = { 1.0, 0.0 };
+    Validate(output, expected);
+
+    // t0 < t1 < s0 < s1
+    segment.p[0] = { 2.0, 0.0 };
+    segment.p[1] = { 3.0, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 1.0;
+    expected.sqrDistance = 1.0;
     expected.numClosestPairs = 1;
     expected.parameter[0] = 0.0;
-    expected.closest[0][0] = { -0.25, 0.5 };
-    expected.closest[0][1] = { -0.44721359549995793, 0.89442719099991586 };
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 2.0, 0.0 };
+    expected.closest[0][1] = { 1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
     Validate(output, expected);
 
-    // 6' (segment inside the circle, segment.p[1] closer)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    segment.p[0] = { -0.125, 0.5 };
-    segment.p[1] = { +0.25, 0.5 };
+    // t0 < t1 = s0 < s1
+    segment.p[0] = { 1.0, 0.0 };
+    segment.p[1] = { 3.0, 0.0 };
     output = query(segment, circle);
-    expected.distance = 0.44098300562505255;
-    expected.sqrDistance = 0.19446601125010513;
+    expected.distance = 0.0;
+    expected.sqrDistance = 0.0;
+    expected.numClosestPairs = 1;
+    expected.parameter[0] = 0.0;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 1.0, 0.0 };
+    expected.closest[0][1] = { 1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
+    Validate(output, expected);
+
+    // t0 < s0 < t1 < s1
+    segment.p[0] = { -0.5, 0.0 };
+    segment.p[1] = { 3.0, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 0.0;
+    expected.sqrDistance = 0.0;
+    expected.numClosestPairs = 1;
+    expected.parameter[0] = 3.0 / 7.0; // 0.42857142857142855;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 1.0, 0.0 };
+    expected.closest[0][1] = { 1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
+    Validate(output, expected);
+
+    // s0 < t0 < t1 < s1
+    segment.p[0] = { -2.0, 0.0 };
+    segment.p[1] = { 2.0, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 0.0;
+    expected.sqrDistance = 0.0;
+    expected.numClosestPairs = 2;
+    expected.parameter[0] = 0.25;
+    expected.parameter[1] = 0.75;
+    expected.closest[0][0] = { -1.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 1.0, 0.0 };
+    expected.closest[1][1] = { 1.0, 0.0 };
+    Validate(output, expected);
+
+    // s0 = t0 < t1 < s1
+    segment.p[0] = { -1.0, 0.0 };
+    segment.p[1] = { 2.0, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 0.0;
+    expected.sqrDistance = 0.0;
+    expected.numClosestPairs = 2;
+    expected.parameter[0] = 0.0;
+    expected.parameter[1] = 2.0 / 3.0; // 0.66666666666666663;
+    expected.closest[0][0] = { -1.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 1.0, 0.0 };
+    expected.closest[1][1] = { 1.0, 0.0 };
+    Validate(output, expected);
+
+    // t0 < s0 < s1 < t1
+    segment.p[0] = { -0.25, 0.0 };
+    segment.p[1] = { 0.75, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 0.25;
+    expected.sqrDistance = 0.0625;
     expected.numClosestPairs = 1;
     expected.parameter[0] = 1.0;
-    expected.closest[0][0] = { 0.25, 0.5 };
-    expected.closest[0][1] = { 0.44721359549995793, 0.89442719099991586 };
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 0.75, 0.0 };
+    expected.closest[0][1] = { 1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
     Validate(output, expected);
 
-    // 6" (segment inside the circle, segment.p[0] and segment.p[1] equidistant)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    segment.p[0] = { -0.25, 0.5 };
-    segment.p[1] = { +0.25, 0.5 };
+    // Test for the distance comparison in Update{ segment,circle,output }.
+    segment.p[0] = { -0.75, 0.0 };
+    segment.p[1] = { 0.25, 0.0 };
     output = query(segment, circle);
-    expected.distance = 0.44098300562505255;
-    expected.sqrDistance = 0.19446601125010513;
+    expected.distance = 0.25;
+    expected.sqrDistance = 0.0625;
+    expected.numClosestPairs = 1;
+    expected.parameter[0] = 0.0;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { -0.75, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
+    Validate(output, expected);
+
+    // Test for the distance { equality } comparison in Update{ segment,circle,output }.
+    segment.p[0] = { -0.75, 0.0 };
+    segment.p[1] = { 0.75, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 0.25;
+    expected.sqrDistance = 0.0625;
     expected.numClosestPairs = 2;
     expected.parameter[0] = 0.0;
     expected.parameter[1] = 1.0;
-    expected.closest[0][0] = { -0.25, 0.5 };
-    expected.closest[0][1] = { -0.44721359549995793, 0.89442719099991586 };
-    expected.closest[1][0] = { 0.25, 0.5 };
-    expected.closest[1][1] = { 0.44721359549995793, 0.89442719099991586 };
+    expected.closest[0][0] = { -0.75, 0.0 };
+    expected.closest[0][1] = { 0.75, 0.0 };
+    expected.closest[1][0] = { -1.0, 0.0 };
+    expected.closest[1][1] = { 1.0, 0.0 };
     Validate(output, expected);
 
-    // 7 (segment intersects the circle in 2 points)
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    segment.p[0] = { -1.0, 0.5 };
-    segment.p[1] = { +2.0, 0.5 };
+    // t0 < s0 < s1 = t1
+    segment.p[0] = { -0.75, 0.0 };
+    segment.p[1] = { 1.0, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 0.0;
+    expected.sqrDistance = 0.0;
+    expected.numClosestPairs = 1;
+    expected.parameter[0] = 1.0;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 1.0, 0.0 };
+    expected.closest[0][1] = { 1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
+    Validate(output, expected);
+
+    // t0 = s0 < s1 < t1
+    segment.p[0] = { -1.0, 0.0 };
+    segment.p[1] = { 0.75, 0.0 };
+    output = query(segment, circle);
+    expected.distance = 0.0;
+    expected.sqrDistance = 0.0;
+    expected.numClosestPairs = 1;
+    expected.parameter[0] = 0.0;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { -1.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
+    Validate(output, expected);
+
+    // t0 = s0 < s1 = t1
+    segment.p[0] = { -1.0, 0.0 };
+    segment.p[1] = { 1.0, 0.0 };
     output = query(segment, circle);
     expected.distance = 0.0;
     expected.sqrDistance = 0.0;
     expected.numClosestPairs = 2;
-    expected.parameter[0] = 0.044658198738520449;
-    expected.parameter[1] = 0.62200846792814624;
-    expected.closest[0][0] = { -0.86602540378443860, 0.5 };
-    expected.closest[0][1] = { -0.86602540378443860, 0.5 };
-    expected.closest[1][0] = { +0.86602540378443860, 0.5 };
-    expected.closest[1][1] = { +0.86602540378443860, 0.5 };
+    expected.parameter[0] = 0.0;
+    expected.parameter[1] = 1.0;
+    expected.closest[0][0] = { -1.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 1.0, 0.0 };
+    expected.closest[1][1] = { 1.0, 0.0 };
     Validate(output, expected);
 }
 

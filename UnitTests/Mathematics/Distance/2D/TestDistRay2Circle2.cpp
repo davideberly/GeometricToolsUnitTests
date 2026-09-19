@@ -53,107 +53,87 @@ void UnitTestDistRay2Circle2::Test()
     Circle2<double> circle{};
     RCQuery query{};
     RCQuery::Output output{}, expected{};
-    Vector2<double> trn = { 0.01234, 0.56789 };
 
     circle.center = { 0.0, 0.0 };
     circle.radius = 1.0;
-    ray.origin = { 4.0, 3.0 };
-    ray.direction = { -1.0, 1.0 };
+
+    // Line does not intersect with circle or is tangent to the circle.
+
+    // Ray outside circle with origin to left of line point closest to circle.
+    ray.origin = { -1.0, 2.0 };
+    ray.direction = { 1.0, 0.0 };
     output = query(ray, circle);
-    expected.distance = 3.9497474683058327;
-    expected.sqrDistance = 15.600505063388335;
+    expected.distance = 1.0;
+    expected.sqrDistance = 1.0;
     expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.5;
-    expected.closest[0][0] = { 3.5, 3.5 };
-    expected.closest[0][1] = { 0.70710678118654746, 0.70710678118654746 };
+    expected.parameter[0] = 1.0;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 0.0, 2.0 };
+    expected.closest[0][1] = { 0.0, 1.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
     Validate(output, expected);
 
-    circle.center += trn;
-    ray.origin += trn;
+    // Ray outside circle with origin to right of line point closest to circle.
+    ray.origin = { +1.0, 2.0 };
+    ray.direction = { 1.0, 0.0 };
     output = query(ray, circle);
-    expected.distance = 3.9497474683058327;
-    expected.sqrDistance = 15.600505063388336;
-    expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.5;
-    expected.closest[0][0] = { 3.51234, 4.06789 };
-    expected.closest[0][1] = { 0.71944678118654748, 1.2749967811865475 };
-    Validate(output, expected);
-
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    ray.origin = { 4.0, 3.0 };
-    ray.direction = -ray.direction;
-    output = query(ray, circle);
-    expected.distance = 4.0;
-    expected.sqrDistance = 16.0;
+    expected.distance = std::sqrt(5.0) - 1; // 1.2360679774997898;
+    expected.sqrDistance = 6.0 - 2 * std::sqrt(5.0); // 1.5278640450004208;
     expected.numClosestPairs = 1;
     expected.parameter[0] = 0.0;
-    expected.closest[0][0] = { 4.0, 3.0 };
-    expected.closest[0][1] = { 0.8, 0.6 };
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 1.0, 2.0 };
+    expected.closest[0][1] = { 0.44721359549995793, 0.89442719099991586 }; // = { 1 / sqrt{ 5 }, 2 / sqrt{ 5 } }
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
     Validate(output, expected);
 
-    circle.center += trn;
-    ray.origin += trn;
-    output = query(ray, circle);
-    expected.distance = 4.0;
-    expected.sqrDistance = 16.0;
-    expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.0;
-    expected.closest[0][0] = { 4.01234, 3.56789 };
-    expected.closest[0][1] = { 0.81234, 1.16789 };
-    Validate(output, expected);
+    // Line intersects circle in 2 points.
 
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    ray.direction = { 4.0, 3.0 };
-    ray.origin = Vector2<double>{ 0.25, 0.25 } + 5.0 * ray.direction;
-    output = query(ray, circle);
-    expected.distance = 24.350049309616736;
-    expected.sqrDistance = 592.92490138076653;
-    expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.0;
-    expected.closest[0][0] = { 20.25, 15.25 };
-    expected.closest[0][1] = { 0.79881501423028822, 0.60157673911169851 };
-    Validate(output, expected);
-
-    circle.center += trn;
-    ray.origin += trn;
-    output = query(ray, circle);
-    expected.distance = 24.350049309616736;
-    expected.sqrDistance = 592.92490138076653;
-    expected.numClosestPairs = 1;
-    expected.parameter[0] = 0.0;
-    expected.closest[0][0] = { 20.26234, 15.81789 };
-    expected.closest[0][1] = { 0.81115501423028824, 1.1694667391116984 };
-    Validate(output, expected);
-
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 1.0;
-    ray.direction = { 4.0, 3.0 };
-    ray.origin = Vector2<double>{ 0.25, 0.25 } - 5.0 * ray.direction;
+    // Ray intersects circle in 2 points.
+    ray.origin = { -2.0, 0.0 };
+    ray.direction = { 1.0, 0.0 };
     output = query(ray, circle);
     expected.distance = 0.0;
     expected.sqrDistance = 0.0;
     expected.numClosestPairs = 2;
-    expected.parameter[0] = 4.7302501564456181;
-    expected.parameter[1] = 5.1297498435543822;
-    expected.closest[0][0] = { -0.82899937421752767, -0.55924953066314487 };
-    expected.closest[0][1] = { -0.82899937421752767, -0.55924953066314487 };
-    expected.closest[1][0] = { 0.76899937421752895, 0.63924953066314671 };
-    expected.closest[1][1] = { 0.76899937421752895, 0.63924953066314671 };
+    expected.parameter[0] = 1.0;
+    expected.parameter[1] = 3.0;
+    expected.closest[0][0] = { -1.0, 0.0 };
+    expected.closest[0][1] = { -1.0, 0.0 };
+    expected.closest[1][0] = { 1.0, 0.0 };
+    expected.closest[1][1] = { 1.0, 0.0 };
     Validate(output, expected);
 
-    circle.center = { 0.0, 0.0 };
-    circle.radius = 5.0;
-    ray.direction = { 4.0, -3.0 };
-    ray.origin = Vector2<double>{ 3.0, 4.0 } + 2.0 * ray.direction;
+    // Ray origin inside circle, ray intersects circle in 1 point.
+    ray.origin = { 0.5, 0.0 };
+    ray.direction = { 1.0, 0.0 };
     output = query(ray, circle);
-    expected.distance = 6.1803398874989490;
-    expected.sqrDistance = 38.196601125010524;
+    expected.distance = 0.0;
+    expected.sqrDistance = 0.0;
+    expected.numClosestPairs = 1;
+    expected.parameter[0] = 0.5;
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 1.0, 0.0 };
+    expected.closest[0][1] = { 1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
+    Validate(output, expected);
+
+    // Ray origin inside circle, ray intersects circle in 1 point.
+    ray.origin = { 1.5, 0.0 };
+    ray.direction = { 1.0, 0.0 };
+    output = query(ray, circle);
+    expected.distance = 0.5;
+    expected.sqrDistance = 0.25;
     expected.numClosestPairs = 1;
     expected.parameter[0] = 0.0;
-    expected.closest[0][0] = { 11.0, -2.0 };
-    expected.closest[0][1] = { 4.9193495504995370, -0.89442719099991586 };
+    expected.parameter[1] = 0.0;
+    expected.closest[0][0] = { 1.5, 0.0 };
+    expected.closest[0][1] = { 1.0, 0.0 };
+    expected.closest[1][0] = { 0.0, 0.0 };
+    expected.closest[1][1] = { 0.0, 0.0 };
     Validate(output, expected);
 }
 
