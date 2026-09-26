@@ -168,15 +168,15 @@ void UnitTestDistRaySegment::Test2D()
 
     // no intersection, ray origin is closest to segment.p[0]
     ray.origin = { 0.0, 0.0 };
-    ray.direction = { 3.0 / 5.0, 4.0 / 5.0 };
-    segment.p[0] = { 0.0, -1.0 };
-    segment.p[1] = { 1.0, -1.0 };
+    ray.direction = { 2.0, 0.0 };
+    segment.p[0] = { -1.0, 1.0 };
+    segment.p[1] = { -1.0, 2.0 };
     output = query(ray, segment);
-    error = std::fabs(output.sqrDistance - 1.0);
+    error = std::fabs(output.sqrDistance - 2.0);
     UTAssert(
         error <= 1e-15,
         "Invalid DCPQuery.");
-    error = std::fabs(output.distance - std::sqrt(1.0));
+    error = std::fabs(output.distance - std::sqrt(2.0));
     UTAssert(
         error <= 1e-15,
         "Invalid DCPQuery.");
@@ -193,7 +193,7 @@ void UnitTestDistRaySegment::Test2D()
     UTAssert(
         error <= 1e-15,
         "Invalid DCPQuery.");
-    expectedClosest[1] = { 0.0, -1.0 };
+    expectedClosest[1] = { -1.0, 1.0 };
     error = Length(output.closest[1] - expectedClosest[1]);
     UTAssert(
         error <= 1e-15,
@@ -201,15 +201,15 @@ void UnitTestDistRaySegment::Test2D()
 
     // no intersection, ray origin is closest to segment.p[1]
     ray.origin = { 0.0, 0.0 };
-    ray.direction = { 3.0 / 5.0, 4.0 / 5.0 };
-    segment.p[0] = { 1.0, -1.0 };
-    segment.p[1] = { 0.0, -1.0 };
+    ray.direction = { 2.0, 0.0 };
+    segment.p[0] = { -1.0, 2.0 };
+    segment.p[1] = { -1.0, 1.0 };
     output = query(ray, segment);
-    error = std::fabs(output.sqrDistance - 1.0);
+    error = std::fabs(output.sqrDistance - 2.0);
     UTAssert(
         error <= 1e-15,
         "Invalid DCPQuery.");
-    error = std::fabs(output.distance - std::sqrt(1.0));
+    error = std::fabs(output.distance - std::sqrt(2.0));
     UTAssert(
         error <= 1e-15,
         "Invalid DCPQuery.");
@@ -226,17 +226,50 @@ void UnitTestDistRaySegment::Test2D()
     UTAssert(
         error <= 1e-15,
         "Invalid DCPQuery.");
-    expectedClosest[1] = { 0.0, -1.0 };
+    expectedClosest[1] = { -1.0, 1.0 };
     error = Length(output.closest[1] - expectedClosest[1]);
     UTAssert(
         error <= 1e-15,
         "Invalid DCPQuery.");
 
-    // parallel but not coincident
+    // parallel but not coincident, same direction
     ray.origin = { 0.0, 0.0 };
     ray.direction = { 3.0, 4.0 };
     segment.p[0] = { -1.0, -1.0 };
     segment.p[1] = { 2.0, 3.0 };
+    output = query(ray, segment);
+    error = std::fabs(output.sqrDistance - 0.04);
+    UTAssert(
+        error <= 1e-15,
+        "Invalid DCPQuery.");
+    error = std::fabs(output.distance - std::sqrt(0.04));
+    UTAssert(
+        error <= 1e-15,
+        "Invalid DCPQuery.");
+    error = std::fabs(output.parameter[0] - 0.72);
+    UTAssert(
+        error <= 1e-15,
+        "Invalid DCPQuery.");
+    error = std::fabs(output.parameter[1] - 1.0);
+    UTAssert(
+        error <= 1e-15,
+        "Invalid DCPQuery.");
+    expectedClosest[0] = { 2.16, 2.88 };
+    error = Length(output.closest[0] - expectedClosest[0]);
+    UTAssert(
+        error <= 1e-15,
+        "Invalid DCPQuery.");
+    expectedClosest[1] = { 2.0, 3.0 };
+    error = Length(output.closest[1] - expectedClosest[1]);
+    UTAssert(
+        error <= 1e-15,
+        "Invalid DCPQuery.");
+
+    // parallel but not coincident, opposite direction
+    ray.origin = { 0.0, 0.0 };
+    ray.direction = { 3.0, 4.0 };
+    segment.p[0] = { 2.0, 3.0 };
+    segment.p[1] = { -1.0, -1.0 };
     output = query(ray, segment);
     error = std::fabs(output.sqrDistance - 0.04);
     UTAssert(
