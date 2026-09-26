@@ -35,7 +35,6 @@ Containment
         ContCircle3
         ContCylinder3
         ContEllipsoid3
-        ContLozenge3
         ContPolyhedron3
         ContSphere3
     ND
@@ -296,6 +295,7 @@ Containment
     2D
         ContOrientedBox2 (tested by GTL/VisualTests/Mathematics/Approximation/ApproximationEllipse2)
     3D
+        ContLozenge3 (tested by GTL/VisualTests/Mathematics/Containment/ContLozenge3)
         ContOrientedBox3
         ContTetrahedron3
     ND
