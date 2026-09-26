@@ -49,6 +49,14 @@ void UnitTestDistLine3OrientedBox3::Test()
 
     output = query(line, box);
     UTAssert(std::fabs(output.distance - 5.1606938208625763) <= maxError, "Invalid distance");
+    UTAssert(std::fabs(output.sqrDistance - 26.632760712689176) <= maxError, "Invalid sqrDistance");
+    UTAssert(std::fabs(output.parameter - 1.7225676437547557) <= maxError, "Invalid parameter");
+    UTAssert(std::fabs(output.closest[0][0] - (-1.2304106264767865)) <= maxError, "Invalid closest[0][0]");
+    UTAssert(std::fabs(output.closest[0][1] - (-1.8542052493773546)) <= maxError, "Invalid closest[0][1]");
+    UTAssert(std::fabs(output.closest[0][2] - (0.47799987227792284)) <= maxError, "Invalid closest[0][2]");
+    UTAssert(std::fabs(output.closest[1][0] - 1.4) <= maxError, "Invalid closest[1][0]");
+    UTAssert(std::fabs(output.closest[1][1] - 1.8) <= maxError, "Invalid closest[1][1]");
+    UTAssert(std::fabs(output.closest[1][2] - 3.0) <= maxError, "Invalid closest[1][2]");
 }
 
 #else
