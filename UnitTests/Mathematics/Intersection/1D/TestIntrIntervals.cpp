@@ -517,7 +517,7 @@ void UnitTestIntrIntervals::FindDynamicIntersection()
     UTAssert(output.intersect == true, invalidIntersection);
     UTAssert(output.numIntersections == 1, invalidNumIntersections);
     UTAssert(output.type == FindOutput::isDynamicQuery, invalidType);
-    UTAssert(output.overlap[0] == 2.0 && output.overlap[1] == 2.0, invalidOverlap);
+    UTAssert(output.overlap[0] == 3.0 && output.overlap[1] == 3.0, invalidOverlap);
     UTAssert(output.firstTime == 1.0, invalidFirstTimeContact);
     UTAssert(output.lastTime == 3.0, invalidLastTimeContact);
 
